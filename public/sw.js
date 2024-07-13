@@ -1,5 +1,5 @@
 const preLoad = async function () {
-    return caches.open("offline11").then(function (cache) {
+    return caches.open("name222").then(function (cache) {
         // caching index and important routes
         return cache.addAll(filesToCache);
     });
@@ -12,7 +12,8 @@ self.addEventListener("install", function (event) {
 const filesToCache = [
     '/',
     '/offline.html',
-    '/login', 
+    '/login',
+    '/offline' 
 ];
 
 const checkResponse = function (request) {
@@ -28,7 +29,7 @@ const checkResponse = function (request) {
 };
 
 const addToCache = async function (request) {
-    return caches.open("offline11").then(async function (cache) {
+    return caches.open("name222").then(async function (cache) {
         return fetch(request).then(function (response) {
             return cache.put(request, response);
         });
@@ -36,11 +37,11 @@ const addToCache = async function (request) {
 };
 
 const returnFromCache = async function (request) {
-    return caches.open("offline11").then(async function (cache) {
+    return caches.open("name222").then(async function (cache) {
         return cache.match(request).then(function (matching) {
             if (!matching || matching.status === 404) {
-                if (request.url.includes('/login')) {
-                    return cache.match("/login");
+                if (request.url.includes('login')) {
+                    return cache.match("/offline");
                 } else {
                     return cache.match("/");
                 }
