@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}" >
+    <form method="POST" action="{{ route('login') }}" id="offline-login-form" >
         @csrf
 
         <!-- Email Address -->
@@ -44,5 +44,39 @@
             </x-primary-button>
         </div>
     </form>
-    
+    <script>
+        document.getElementById('offline-login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = event.target.email.value;
+            const password = event.target.password.value;
+            localStorage.setItem('offline-login', JSON.stringify({ email, password }));
+            alert('Login data saved. It will be synced when you are online.');
+        });
+    </script>
+    <script>
+     window.addEventListener('online', () => {
+        const loginData = localStorage.getItem('offline-login');
+        if (loginData) {
+          fetch('/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: loginData
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              localStorage.removeItem('offline-login');
+              alert('Login data synced successfully.');
+            //   window.location.href = '/dashboard'; // Redirect to the dashboard page
+
+            } else {
+              alert('Failed to sync login data.');
+            }
+          });
+        }
+      });
+    </script>
 </x-guest-layout>

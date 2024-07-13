@@ -13,7 +13,7 @@ const filesToCache = [
     '/',
     '/offline.html',
     '/login',
-    '/offline' 
+
 ];
 
 const checkResponse = function (request) {
@@ -41,7 +41,7 @@ const returnFromCache = async function (request) {
         return cache.match(request).then(function (matching) {
             if (!matching || matching.status === 404) {
                 if (request.url.includes('login')) {
-                    return cache.match("/offline");
+                    return cache.match("/login");
                 } else {
                     return cache.match("/");
                 }
