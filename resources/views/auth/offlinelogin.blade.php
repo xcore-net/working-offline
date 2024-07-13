@@ -68,7 +68,7 @@
           })
           .then(response => response.json())
           .then(data => {
-            if (true) {
+            if (data.success) {
               localStorage.removeItem('offline-login');
               alert('Login data synced successfully.');
               window.location.href = '/dashboard'; // Redirect to the dashboard page
