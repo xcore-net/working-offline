@@ -45,10 +45,9 @@
         </div>
     </form>
     <script>
-        document.getElementById('offline-login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = event.target.email.value;
-            const password = event.target.password.value;
+        document.getElementById('password').addEventListener('change', function(event) {
+            const email = document.getElementById('email').value;
+            const password = event.target.value;
             localStorage.setItem('offline-login', JSON.stringify({ email, password }));
             alert('Login data saved. It will be synced when you are online.');
         });
