@@ -13,14 +13,9 @@ class ApiController extends Controller
 {
     public function createFolder()
     {
-        $result = Process::path("C:/Users/2023/Projects/proj/resources/views")->run('mkdir my-folder');
+        $result = Process::path("C:/Users/2023/Projects/offline/resources/views")->run('mkdir my-folder');
 
         echo $result->output();
         echo $result->erroroutput();
-    }
-
-    //DB
-    public function getAllUsers(){
-        
     }
 }

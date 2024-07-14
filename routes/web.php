@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DbController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,14 @@ require __DIR__.'/auth.php';
 
 Route::get('/offline', function () {
     return view('auth.offlinelogin');
+});
+
+//DB
+Route::prefix('db')->group(function () {
+    Route::get('/users',[DbController::class,'getAllUsers'] )->name('user.index');
+});
+
+//DB
+Route::prefix('db')->group(function () {
+    Route::get('/users',[DbController::class,'getAllUsers'] )->name('user.destory');
 });
