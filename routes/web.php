@@ -24,12 +24,12 @@ Route::get('/offline', function () {
     return view('auth.offlinelogin');
 });
 
-//DB
-Route::prefix('db')->group(function () {
-    Route::get('/users',[DbController::class,'getAllUsers'] )->name('user.index');
-});
+
 
 //DB
 Route::prefix('db')->group(function () {
-    Route::get('/users',[DbController::class,'getAllUsers'] )->name('user.destory');
+    Route::get('/users',[DbController::class,'getAllUsers'] )->name('user.index');
+    Route::get('/users/{name}',[DbController::class,'getUsersWhereName'] );
+    Route::get('/user/{id}',[DbController::class,'getUserById'] );
+    Route::get('/users/emails',[DbController::class,'getUsersEmails'] );
 });

@@ -62,4 +62,5 @@
 
                 </div>
             </div>
+            {{$users->links()}}
 </x-app-layout>
