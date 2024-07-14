@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProcessesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ require __DIR__.'/auth.php';
 Route::get('/offline', function () {
     return view('auth.offlinelogin');
 });
+
+Route::get('/pro',[ProcessesController::class,'exeProcess']);
