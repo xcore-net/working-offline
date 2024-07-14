@@ -32,7 +32,6 @@
         <p>This is a beautiful and simple HTML/CSS view.</p>
         {{ $result->output() }}<br>
         {{ $result->erroroutput() }}
-    {{ $jre }}
     </div>
     
 </body>
