@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProcessesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\PaginationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,4 +26,8 @@ Route::get('/offline', function () {
     return view('auth.offlinelogin');
 });
 
+Route::get('/getdata',[DataController::class, 'getdata']);
+
 Route::get('/pro',[ProcessesController::class,'exeProcess']);
+
+Route::get('/page',[PaginationController::class, 'page']);
