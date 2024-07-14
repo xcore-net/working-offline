@@ -166,6 +166,25 @@
                         </div>
                     </main>
 
+                    {{-- <ul>
+                        @foreach ($users as $user)
+                            <li>{{ $user->name }} ({{ $user->email }})</li>
+                        @endforeach
+                    </ul> --}}
+                    {{-- <li>{{ $user->name }}</li> --}}
+                    {{-- <li>{{ $user->name  }} {{ $email }}</li> --}}
+
+                    {{-- @foreach ($emails as  $name => $title)
+                    <li> ({{ $emails }})</li>
+                  
+                @endforeach --}}
+                {{-- <li> ({{ $users }})</li> --}}
+                {{-- <li> ({{ $price }})</li> --}}
+
+
+
+
+
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </footer>

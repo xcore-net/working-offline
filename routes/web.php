@@ -2,11 +2,25 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProcessController;
+use App\Http\Controllers\databaseController;
+use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/data', [databaseController::class, 'index1']);
+// Route::get('/data', [databaseController::class, 'index2']);
+// Route::get('/data', [databaseController::class, 'index4']);
+
+// Route::get('/data', [databaseController::class, 'index3']);
+
+// Route::get('/data', [databaseController::class, 'index12']);
+Route::get('/page', [UserController::class, 'index']);
+
+
+
 
 Route::get('/test', [ProcessController::class, 'test']);
 
