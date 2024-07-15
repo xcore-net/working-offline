@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProcessController;
 use App\Http\Controllers\databaseController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OneToOneController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,7 @@ Route::get('/', function () {
 Route::get('/page', [UserController::class, 'index']);
 
 
+Route::get('/rel', [OneToOneController::class, 'showRelation']);
 
 
 Route::get('/test', [ProcessController::class, 'test']);
