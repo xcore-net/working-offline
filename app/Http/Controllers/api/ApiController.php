@@ -70,7 +70,7 @@ class ApiController extends Controller
 
                 $user->name = $rand >= 0.25 ? null : $user->name;
             }
-        });
+        );
 
         return DB::table('users')->get();
     }
