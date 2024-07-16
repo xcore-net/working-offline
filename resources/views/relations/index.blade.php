@@ -36,6 +36,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Salary</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Branch ID</th>
@@ -51,6 +52,7 @@
                 <tr>
                     <td>{{ $employee->id }}</td>
                     <td>{{ $employee->name }}</td>
+                    <td>{{ $employee->salary }}</td>
                     <td>{{ $employee->created_at }}</td>
                     <td>{{ $employee->updated_at }}</td>
                     <td>{{ $employee->branch_id }}</td>
