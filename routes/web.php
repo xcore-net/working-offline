@@ -4,6 +4,7 @@ use App\Http\Controllers\ProcessesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\RelationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,3 +32,5 @@ Route::get('/getdata',[DataController::class, 'getdata']);
 Route::get('/pro',[ProcessesController::class,'exeProcess']);
 
 Route::get('/page',[PaginationController::class, 'page']);
+
+Route::get('/rel',[RelationController::class, 'show_rel']);

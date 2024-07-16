@@ -23,26 +23,32 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .pagination {
-  list-style: none;
-  padding-left: 0;
-  text-align: center;
-}
+        list-style: none;
+        padding-left: 0;
+        text-align: center;
+        -webkit-text-fill-color: #000000;
+        padding: 0.2rem 0.4rem;
+        border: 4px solid rgba(30, 0, 255, 0.6);
+        border-radius: 20px;
 
-.pagination li {
-  display: inline-block;
-}
+        }
 
-.pagination li+li {
-  margin-left: 1rem;
-}
+        .pagination li {
+        display: inline-block;
+        }
 
-.pagination a {
-  text-decoration: none;
-  padding: 0.2rem 0.4rem;
-  color: red;
-  border: 1px solid red;
-  border-radius: 2px;
-}
+        .pagination li+li {
+        margin-left: 1rem;
+        }
+
+        .pagination a {
+        text-decoration: none;
+        background-color: black;
+        -webkit-text-fill-color: #f0f0f0;
+        padding: 0.2rem 0.6rem;
+        border: 3px solid rgb(43, 0, 255,0.8);
+        border-radius: 2px;
+        }
      
     </style>
 </head>
