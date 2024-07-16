@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('annual_reports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->date('year');
+            $table->double('income');
+            $table->double('expenses');
+            $table->unsignedBigInteger('reportable_id');
+            $table->string('reportable_type');
         });
     }
 

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
+use App\Models\AnnualReport;
 use App\Models\Branch;
 use App\Models\Company;
 use App\Models\Employee;
@@ -25,6 +27,9 @@ class DatabaseSeeder extends Seeder
                 Employee::factory(20)->create(['branch_id' => $branch->id]);
             });
         });
+
+        AnnualReport::factory(20)->create();
+        Address::factory(20)->create();
         
 
         // User::factory(10)->create();

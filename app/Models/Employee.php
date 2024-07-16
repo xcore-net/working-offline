@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Str;
 
 class Employee extends Model
@@ -17,9 +19,14 @@ class Employee extends Model
         return $this->belongsTo(Role::class);
     }
 
-    public function address(): BelongsTo
+
+    public function address(): MorphOne
     {
-        return $this->belongsTo(Address::class);
+        return $this->morphOne(Address::class, 'addressable');
+    }
+    public function reports(): MorphMany
+    {
+        return $this->morphMany(AnnualReport::class, 'reportable');
     }
 
     protected function salary(): Attribute
@@ -28,6 +35,8 @@ class Employee extends Model
             get: fn (string $value) => Str::start($value,'$'),
         );
     }
+
+    
 
     protected function casts(): array
     {

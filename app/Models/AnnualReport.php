@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class AnnualReport extends Model
 {
@@ -13,9 +14,10 @@ class AnnualReport extends Model
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
-    }  
-    public function accountant(): BelongsTo
+    }
+
+    public function reportable(): MorphTo
     {
-        return $this->belongsTo(Employee::class);
+        return $this->morphTo;
     }
 }
