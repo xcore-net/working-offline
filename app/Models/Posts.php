@@ -12,7 +12,7 @@ class Posts extends Model
 {
     use HasFactory;
     protected $table = 'posts';
-    
+
     protected $fillable = [
         'title',
         'content',
@@ -20,7 +20,9 @@ class Posts extends Model
     ];
     public function person(): BelongsTo
     {
-        return $this->belongsTo(Person::class,);
+        return $this->belongsTo(Person::class,)->withDefault([
+            'name' => 'Guest Author',
+        ]);
     }
 
 }

@@ -22,7 +22,7 @@ class Person extends Model
     ];
     public function cards():HasOne
     {
-        return $this->hasOne(Cards::class);
+        return $this->hasOne(Cards::class)->ofMany('id', 'max');
     
     }
     public function posts(): HasMany
