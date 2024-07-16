@@ -63,9 +63,20 @@
     @empty
         No courses
     @endforelse
-    <br><br>
-@endforeach
-
+    
+    
+    @endforeach
+    <h2>MorphOne post </h2>
+    @if($post)
+        <b>Post : </b>{{ $post->name }},<b>Image : </b>{{ $post->image ? $post->image->url : 'No image' }}
+    @else
+        <p>No post found</p>
+    @endif   
+    <h2>MorphOne image</h2>
+    @foreach ($image2 as $imag )
+        <b>Image : </b>{{ $imag->url }}, <b>Image Type : </b>{{ $imag->imageable_type }},<b>Related(post or user) : </b>{{ $imag->imageable->name }},  <br>
+    @endforeach
+     <br><br>
         </div>
     </div>
 </body>

@@ -7,6 +7,9 @@ use App\Models\Person;
 use App\Models\Book;
 use App\Models\Mechanic;
 use App\Models\Student;
+use App\Models\Post;
+use App\Models\Sender;
+use App\Models\Image;
 
 class RelationController extends Controller
 {
@@ -30,6 +33,21 @@ class RelationController extends Controller
         //  $student->paid = 5023.25421;
         //  $student->save();
 
-        return view('relation',['persons'=>$persons,'books'=>$books,'mechanics'=>$mechanics,'students'=>$students]);
+        //Morph One
+        $post = Post::find(1);
+        $image = $post->image();
+
+        $image2 = Image::all();
+        
+
+        return view('relation',
+                        ['persons'=>$persons,
+                        'books'=>$books,
+                        'mechanics'=>$mechanics,
+                        'students'=>$students,
+                        'post'=>$post,
+                        'image'=>$image,
+                        'image2'=>$image2
+                    ]);
     }
 }
