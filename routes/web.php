@@ -17,10 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-require __DIR__.'/auth.php';
-
+    
 Route::get('/offline', function () {
     return view('auth.offlinelogin');
 });
@@ -37,3 +35,6 @@ Route::prefix('db')->group(function () {
 Route::prefix('relations')->group(function () {
     Route::get('/company/{id}',[RelationsController::class,'displayCompanyData'] );
 });
+});
+
+require __DIR__.'/auth.php';

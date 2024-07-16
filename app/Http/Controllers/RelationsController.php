@@ -14,8 +14,8 @@ class RelationsController extends Controller
     {
 
         $company = Company::find($id);
-        $branches = $company->branchEmployees;
-        $employees = '';
+        $branches = $company->branches;
+        $employees =  $company->employees;
         
         return view('relations.index',['company'=>$company,'branches'=>$branches,'employees'=>$employees]);
     }
